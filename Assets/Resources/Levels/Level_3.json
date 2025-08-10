@@ -1,0 +1,26 @@
+{
+    "width": 7,
+    "height": 10,
+    "grinders": [
+        { "position": { "x": 2, "y": 10 }, "color": 2, "size": 1, "type": 0 },
+	{ "position": { "x": 4, "y": 10 }, "color": 1, "size": 1, "type": 0 },
+	{ "position": { "x": 2, "y": -1 }, "color": 3, "size": 1, "type": 0 },
+	{ "position": { "x": 4, "y": -1 }, "color": 0, "size": 1, "type": 0 },
+	{ "position": { "x": -1, "y": 5 }, "color": 0, "size": 2, "type": 1},
+	{ "position": { "x": -1, "y": 1 }, "color": 2, "size": 2, "type": 1},
+	{ "position": { "x": 7, "y": 4 }, "color": 3, "size": 2, "type": 1},
+	{ "position": { "x": 7, "y": 0 }, "color": 1, "size": 2, "type": 1}
+    ],
+    "obstacles": [
+	{ "position": { "x": 4, "y": 5 }},
+	{ "position": { "x": 3, "y": 5 }}
+	],
+    "blocks": [
+        { "position": { "x": 0, "y": 0 }, "shapeID": 8, "blockType": 0, "blockColor": 1 },
+        { "position": { "x": 5, "y": 6 }, "shapeID": 4, "blockType": 0, "blockColor": 3 },
+	{ "position": { "x": 3, "y": 2 }, "shapeID": 6, "blockType": 0, "blockColor": 2 },
+	{ "position": { "x": 1, "y": 7 }, "shapeID": 5, "blockType": 0, "blockColor": 2 },
+	{ "position": { "x": 5, "y": 4 }, "shapeID": 1, "blockType": 0, "blockColor": 0 }
+
+    ]
+}

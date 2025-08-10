@@ -1,0 +1,14 @@
+{
+    "width": 10,
+    "height": 10,
+    "grinders": [],
+    "obstacles": [],
+    "blocks": [
+        { "position": { "x": 0, "y": 0 }, "shapeID": 8, "blockType": 1, "blockColor": 1 },
+        { "position": { "x": 5, "y": 6 }, "shapeID": 4, "blockType": 1, "blockColor": 3 },
+	{ "position": { "x": 3, "y": 2 }, "shapeID": 6, "blockType": 1, "blockColor": 2 },
+	{ "position": { "x": 1, "y": 7 }, "shapeID": 5, "blockType": 1, "blockColor": 2 },
+	{ "position": { "x": 5, "y": 4 }, "shapeID": 1, "blockType": 1, "blockColor": 0 }
+
+    ]
+}
