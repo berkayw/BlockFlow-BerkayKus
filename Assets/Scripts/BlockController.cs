@@ -18,42 +18,42 @@ public class BlockController : MonoBehaviour
     {
         
         Cursor.visible = false;
-        startPos = transform.position;
+        startPos = transform.parent.position;
         
         Vector3 mouseWorld = GetMouseWorldPosition();
-        dragOffset = transform.position - new Vector3(mouseWorld.x, transform.position.y, mouseWorld.z); //tıklanan yer ile arasındaki offset
+        dragOffset = transform.parent.position - new Vector3(mouseWorld.x, transform.parent.position.y, mouseWorld.z); //tıklanan yer ile arasındaki offset
     }
 
     private void OnMouseDrag()
     {
         Vector3 worldMouse = GetMouseWorldPosition();
         Vector3 targetPos = new Vector3(worldMouse.x + dragOffset.x, hoverHeight, worldMouse.z + dragOffset.z);
-        transform.position = targetPos; 
+        transform.parent.position = targetPos; 
 
     }
     void OnMouseUp()
     {
         Cursor.visible = true;        
 
-        Vector3Int cellPos = grid.WorldToCell(transform.position);
+        Vector3Int cellPos = grid.WorldToCell(transform.parent.position);
         Vector3 snapPos = grid.GetCellCenterWorld(cellPos);
 
         snapPos.y = 0;
 
         if (IsValidPlacement(cellPos))
         {
-            transform.position = snapPos;
+            transform.parent.position = snapPos;
             GameEventSystem.instance.BlockPlacedEvent.Invoke();
         }
         else
-            transform.position = startPos;
+            transform.parent.position = startPos;
     }
  
     
     public Vector3 GetMouseWorldPosition()
     {
         Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y,
-            Camera.main.WorldToScreenPoint(transform.position).z);
+            Camera.main.WorldToScreenPoint(transform.parent.position).z);
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(position);
 
         return worldPosition;

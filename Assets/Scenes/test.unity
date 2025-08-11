@@ -538,14 +538,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   remainingBlocks: 0
   levelIndex: 1
-  cellSize: 1
-  origin: {x: 0, y: 0, z: 0}
   currentLevel:
     width: 0
     height: 0
     grinders: []
     obstacles: []
     blocks: []
+  grid: {fileID: 1171781320}
   cellPrefab: {fileID: 6266417407144085895, guid: 95f69b0f07d9feb48a491e4f7ebb55f9,
     type: 3}
   wallPrefab: {fileID: 1635032780162356204, guid: 293f12d411c20774d90a303e8e3cc30f,
@@ -558,7 +557,7 @@ MonoBehaviour:
     type: 3}
   grinder3Prefab: {fileID: 2502726480712925399, guid: e7c54565d300b9f498ebf64fe522731f,
     type: 3}
-  obstaclePrefab: {fileID: 7064929622909435274, guid: 85c2010799a38ec4291e559a5d8cd35e,
+  obstaclePrefab: {fileID: 3801719574434826097, guid: 6e73a693b8a7b2843b22738ff8d36288,
     type: 3}
   blockPrefab: {fileID: 7185081279454382378, guid: 791c0e62ff98e3545a255552b2397c8a,
     type: 3}
