@@ -6,7 +6,8 @@ public enum BlockType
 {
     Normal,
     Iced,
-    SingleAxis
+    OnlyHorizontal,
+    OnlyVertical
 }
 
 public enum BlockColor
@@ -23,6 +24,7 @@ public class BlockInstanceData
     public BlockDataSO blockData;
     public BlockType blockType; //Normal, singleAxis, iced
     public BlockColor blockColor; //Red, Green, Blue, Yellow
+    public int iceCount;
 }
 
 [CreateAssetMenu(fileName = "BlockData", menuName = "Block/BlockData")]
@@ -32,5 +34,8 @@ public class BlockDataSO : ScriptableObject
     public int width;
     public int height;
     public GameObject meshPrefab;
+    
+    [Header("Shape Offsets (Grid Coordinates)")]
+    public List<Vector2Int> shapeOffsets = new List<Vector2Int>();
     
 }

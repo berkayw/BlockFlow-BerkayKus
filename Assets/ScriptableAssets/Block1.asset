@@ -17,3 +17,8 @@ MonoBehaviour:
   height: 2
   meshPrefab: {fileID: 1259180709096118148, guid: 48ab8693f6c3181419ef645145b92cf5,
     type: 3}
+  shapeOffsets:
+  - {x: 0, y: 0}
+  - {x: 0, y: 1}
+  - {x: 1, y: 0}
+  - {x: 1, y: 1}

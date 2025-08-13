@@ -2,20 +2,50 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66faea1b-c894-4838-a76b-d48309de9a81" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BlockFlow-BerkayKus/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BlockFlow-BerkayKus/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Color Blocks 3D Assets/Materials/SP_Arrow_BlockMove_01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Color Blocks 3D Assets/Materials/SP_Arrow_BlockMove_01.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Color Blocks 3D Assets/Materials/SP_Arrow_BlockMove_02.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Color Blocks 3D Assets/Materials/SP_Arrow_BlockMove_02.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Color Blocks 3D Assets/Materials/SP_Arrow_BlockMove_03.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Color Blocks 3D Assets/Materials/SP_Arrow_BlockMove_03.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Blue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Blue.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Green.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Green.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Red.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Red.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Yellow.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Yellow.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObstacleInstanceManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObstacleInstanceManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Arrows/Arrow1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Arrows/Arrow1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Arrows/Arrow2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Arrows/Arrow2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Arrows/Arrow3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Arrows/Arrow3.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/BlockInstance.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/BlockInstance.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Blocks/SM_Block_Cube_S_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Blocks/SM_Block_Cube_S_01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/BlocksWithOffsets/1x1Block.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/BlocksWithOffsets/1x1Block.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/BlocksWithOffsets/1x2Block.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/BlocksWithOffsets/1x2Block.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/BlocksWithOffsets/1x2Block.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/BlocksWithOffsets/1x2Block.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/BlocksWithOffsets/1x3Block.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/BlocksWithOffsets/1x3Block.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/BlocksWithOffsets/2x2Block.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/BlocksWithOffsets/2x2Block.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/BlocksWithOffsets/LBlock - Mirror.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/BlocksWithOffsets/LBlock - Mirror.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/BlocksWithOffsets/LBlock - Small.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/BlocksWithOffsets/LBlock - Small.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/BlocksWithOffsets/LBlock.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/BlocksWithOffsets/LBlock.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/BlocksWithOffsets/Plus+Block.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/BlocksWithOffsets/Plus+Block.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/BlocksWithOffsets/TBlock.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/BlocksWithOffsets/TBlock.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/BlocksWithOffsets/ZBlock.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/BlocksWithOffsets/ZBlock.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/BlocksWithOffsets/1x3Block.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/BlocksWithOffsets/1x3Block.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Grinders/SM_Grinder_1X_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Grinders/SM_Grinder_1X_01.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Grinders/SM_Grinder_2X_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Grinders/SM_Grinder_2X_01.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Grinders/SM_Grinder_3X_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Grinders/SM_Grinder_3X_01.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Walls/SM_Wall_Straight_01 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Walls/SM_Wall_Straight_01 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Levels/Level_1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Levels/Level_1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Levels/Level_2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Levels/Level_2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Levels/Level_3.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Levels/Level_3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Levels/Level_4.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Levels/Level_4.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/test.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableAssets/Block0.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableAssets/Block0.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableAssets/Block1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableAssets/Block1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableAssets/Block2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableAssets/Block2.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableAssets/Block3.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableAssets/Block3.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableAssets/Block4.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableAssets/Block4.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableAssets/Block5.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableAssets/Block5.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableAssets/Block6.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableAssets/Block6.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableAssets/Block7.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableAssets/Block7.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableAssets/Block8.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableAssets/Block8.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableAssets/Block9.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableAssets/Block9.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BlockController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BlockController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BlockInstanceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BlockInstanceManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BoardManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BoardManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameEventSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameEventSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GrinderManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GrinderManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scriptables/BlockDataSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptables/BlockDataSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +53,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/ObstacleInstanceManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FXManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -33,23 +63,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Discover.Launch.Via.Unity": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\berka\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\berka\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\berka\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\berka\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\berka\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\berka\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="D:\Unity\2022.3.58f1\Editor\Unity.exe" />
@@ -96,7 +127,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1754909099883</updated>
-      <workItem from="1754909103568" duration="4783000" />
+      <workItem from="1754909103568" duration="9400000" />
+      <workItem from="1754946516610" duration="1789000" />
+      <workItem from="1754992831186" duration="16849000" />
+      <workItem from="1755033802799" duration="4338000" />
+      <workItem from="1755067888977" duration="5460000" />
+      <workItem from="1755083090071" duration="947000" />
     </task>
     <servers />
   </component>

@@ -6,12 +6,14 @@ using UnityEngine.Events;
 
 public class GameEventSystem : MonoBehaviour
 {
-    public static GameEventSystem instance;
+    public static GameEventSystem Instance;
     public UnityEvent BlockPlacedEvent;
+    public UnityEvent<Vector3, Color> BlockDestroyedEvent;
+    public UnityEvent<Vector3> IceBreakEvent;
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
     }
     
 }

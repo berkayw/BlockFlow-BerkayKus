@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class GrinderManager : MonoBehaviour
@@ -12,8 +14,9 @@ public class GrinderManager : MonoBehaviour
     private BlockController _blockController;
     public GrinderType grinderType;
     public int size;
-    
-    
+
+    public GameObject blockDestroyVFX;
+
     public void Awake()
     {
         grinderRenderer = GetComponent<Renderer>();    
@@ -21,9 +24,13 @@ public class GrinderManager : MonoBehaviour
 
     private void OnEnable()
     {
-        GameEventSystem.instance.BlockPlacedEvent.AddListener(CheckGrinders);
+        GameEventSystem.Instance.BlockPlacedEvent.AddListener(CheckGrinders);
     }
-
+    private void OnDisable()
+    {
+        GameEventSystem.Instance.BlockPlacedEvent.RemoveListener(CheckGrinders);
+    }
+    
     public void InitializeGrinder(GrinderColor _color, Vector3 _direction, Vector3 _rayStartOffset, GrinderType _grinderType, int _size)
     {
         SetGrinderColor(_color);
@@ -72,33 +79,72 @@ public class GrinderManager : MonoBehaviour
         {
             if (hit.collider.CompareTag("Block"))
             {
-                if (hit.collider.GetComponentInParent<BlockInstanceManager>().blockPrefab.GetComponentInChildren<MeshRenderer>().material
-                        .color == grinderRenderer.material.color)
+                BlockInstanceManager bim = hit.collider.GetComponentInParent<BlockInstanceManager>();
+                MeshRenderer blockRenderer = bim.blockPrefab.GetComponentInChildren<MeshRenderer>();
+                
+                if (blockRenderer.material.color == grinderRenderer.material.color)
                 {
                     if (grinderType  == GrinderType.Horizontal)
                     {
-                        if (hit.collider.GetComponentInParent<BlockInstanceManager>().blockInstance.blockData.width <= size)
+                        if (bim.blockInstance.blockData.width <= size)
                         {
-                            Destroy(hit.collider.transform.parent.gameObject);
-                            BoardManager.Instance.remainingBlocks--;
+                            ClearShapeCellsAndDestroy(bim);
                         }
                     }
                     else if (grinderType == GrinderType.Vertical)
                     {
-                        if (hit.collider.GetComponentInParent<BlockInstanceManager>().blockInstance.blockData.height <= size)
+                        if (bim.blockInstance.blockData.height <= size)
                         {
-                            Destroy(hit.collider.transform.parent.gameObject);
-                            BoardManager.Instance.remainingBlocks--;
+                            ClearShapeCellsAndDestroy(bim);
                         }
                     }
-                    
                 }
-                
             }
         }
+    }
 
-        //debug
-        Debug.DrawRay(transform.position + rayStartOffset, -direction.normalized * 1f, Color.red);
+    public void ClearShapeCellsAndDestroy(BlockInstanceManager _blockInstanceManager)
+    {
+        //grid temizle
+        Vector3Int rootCell = BoardManager.Instance.grid.WorldToCell(_blockInstanceManager.transform.position);
+        List<Vector2Int> shapeOffsets = _blockInstanceManager.blockInstance.blockData.shapeOffsets;
+        BoardManager.Instance.RemoveShapeFromGrid(rootCell, shapeOffsets);
+        
+        //obje destroy
+        BoardManager.Instance.spawnedBlocks.Remove(_blockInstanceManager);
+        GameEventSystem.Instance.BlockDestroyedEvent.Invoke(transform.position + new Vector3(0,1f, 0), grinderRenderer.material.color);
+        Destroy(_blockInstanceManager.gameObject);
+        BoardManager.Instance.remainingBlocks--;
+        
+        //buzları azalt
+        List<BlockInstanceManager> icedBlocks = BoardManager.Instance.GetIcedBlocks();
+        foreach (var icedBlock in icedBlocks)
+        {
+            icedBlock.blockInstance.iceCount--;
+            icedBlock.RefreshIceText();
+            if (icedBlock.blockInstance.iceCount <= 0)
+            {
+                icedBlock.blockInstance.blockType = BlockType.Normal;
+                icedBlock.SetBlockVisuals();
+            }
+
+            GameEventSystem.Instance.IceBreakEvent.Invoke(icedBlock.transform.position + new Vector3(0,1f, 0));
+        }
+        
+        
+    }
+    
+    private void OnDrawGizmos()
+    {
+        // Ray başlangıç noktası
+        Vector3 start = transform.position + rayStartOffset;
+        // Ray yönü
+        Vector3 dir = -direction.normalized;
+
+        // Ray çizimi
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(start, start + dir * 1f); // 1f uzunluk
+        
     }
 }
 

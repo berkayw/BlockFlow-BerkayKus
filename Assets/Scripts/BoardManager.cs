@@ -18,7 +18,6 @@ public class GrinderSpawn
     public Vector2Int position; // kenar pozisyonu
     public GrinderColor color;
     public int size = 1; // 1, 2 veya 3
-    public GrinderType type;
 }
 
 [System.Serializable]
@@ -32,9 +31,12 @@ public class BlockSpawn
 {
     public Vector2Int position;   // Grid pozisyonu
     public int shapeID;           // BlockDataSO içindeki shapeID
-    public BlockType blockType;   // Normal, Iced, SingleAxis
+    public BlockType blockType;   // Normal, Iced, hor, ver
     public BlockColor blockColor; // Red, Green, Blue, Yellow
+    public int iceCount;
 }
+
+
 
 public class BoardManager : MonoBehaviour
 {
@@ -48,6 +50,7 @@ public class BoardManager : MonoBehaviour
     private int height;
 
     public Grid grid; // Unity Grid sistemi
+    public HashSet<Vector3Int> occupiedCells = new HashSet<Vector3Int>(); // xlistx -> aynı degerde iki veri olmasın diye hashSet, search daha hizli
 
     [Header("Prefabs")]
     public GameObject cellPrefab;
@@ -62,26 +65,36 @@ public class BoardManager : MonoBehaviour
 
     private Transform boardParent;
 
+    public List<BlockInstanceManager> spawnedBlocks;
+    
     private void Awake()
     {
         Instance = this;
 
         LoadLevel(levelIndex);
-        BuildBoard();
     }
 
     private void Update()
     {
         if (remainingBlocks <= 0)
         {
-            if (levelIndex >= 4) return;
-
             levelIndex++;
+            if (levelIndex >= 5)
+            {
+                levelIndex = 1; 
+            }
+            occupiedCells.Clear();
             LoadLevel(levelIndex);
-            BuildBoard();
         }
     }
 
+    public void SetCameraPos()
+    {
+        Transform mainCamTransform = Camera.main.transform;
+        float camXOffset = (float)currentLevel.width / 2;
+        mainCamTransform.position = new Vector3(camXOffset, mainCamTransform.position.y, mainCamTransform.position.z);
+    }
+    
     public void LoadLevel(int index)
     {
         string path = $"Levels/Level_{index}";
@@ -93,6 +106,8 @@ public class BoardManager : MonoBehaviour
         }
         currentLevel = JsonUtility.FromJson<LevelData>(json.text);
         remainingBlocks = currentLevel.blocks.Count;
+        SetCameraPos();
+        BuildBoard();
     }
 
     public void BuildBoard()
@@ -164,6 +179,17 @@ public class BoardManager : MonoBehaviour
             {
                 Vector3 pos = grid.GetCellCenterWorld(new Vector3Int(obs.position.x, 0, obs.position.y));
                 Instantiate(obstaclePrefab, pos, obstaclePrefab.transform.rotation, boardParent);
+                
+                Vector3Int rootCell = grid.WorldToCell(pos);
+                List<Vector2Int> obstacleShapeOffsets = new List<Vector2Int>
+                {
+                    new Vector2Int(0, 0),
+                    new Vector2Int(0, 1),
+                    new Vector2Int(1, 0),
+                    new Vector2Int(1, 1)
+                };
+                AddShapeToGrid(rootCell, obstacleShapeOffsets);
+                
             }
         }
 
@@ -180,8 +206,10 @@ public class BoardManager : MonoBehaviour
                 {
                     blockData = allBlockData.Find(x => x.shapeID == b.shapeID),
                     blockType = b.blockType,
-                    blockColor = b.blockColor
+                    blockColor = b.blockColor,
+                    iceCount = b.iceCount
                 };
+                spawnedBlocks.Add(inst);
             }
         }
     }
@@ -238,47 +266,108 @@ public class BoardManager : MonoBehaviour
         else if (grinder.size == 3) prefab = grinder3Prefab;
 
         float half = grid.cellSize.x / 2f;
+        float halfSize = grinder.size / 2f;
         Vector3 offset = Vector3.zero;
         Quaternion rot = Quaternion.identity;
 
         Vector3 grinderDirection = Vector3.zero;
         Vector3 grinderRayStartOffset = Vector3.zero;
-
+        GrinderType grinderType = GrinderType.Horizontal; //def
+        
         if (z < 0)
         {
             rot = Quaternion.Euler(-90, 0, -90);
             offset = new Vector3(-half, 0, -0.8f);
             grinderDirection = Vector3.back;
-            grinderRayStartOffset = new Vector3(0.5f, 0.5f, 0);
+            grinderRayStartOffset = new Vector3(halfSize, half, 0);
+            grinderType = GrinderType.Horizontal;
         }
         else if (z >= height)
         {
             rot = Quaternion.Euler(-90, 0, -270);
             offset = new Vector3(half, 0, 0.8f);
             grinderDirection = Vector3.forward;
-            grinderRayStartOffset = new Vector3(-0.5f, 0.5f, 0);
+            grinderRayStartOffset = new Vector3(-halfSize, half, 0);
+            grinderType = GrinderType.Horizontal;
         }
         else if (x < 0)
         {
             rot = Quaternion.Euler(-90, 0, 0);
             offset = new Vector3(-0.8f, 0, half);
             grinderDirection = Vector3.left;
-            grinderRayStartOffset = new Vector3(0, 0.5f, -0.5f);
+            grinderRayStartOffset = new Vector3(0, half, -halfSize);
+            grinderType = GrinderType.Vertical;
         }
         else if (x >= width)
         {
             rot = Quaternion.Euler(-90, 0, -180);
             offset = new Vector3(0.8f, 0, -half);
             grinderDirection = Vector3.right;
-            grinderRayStartOffset = new Vector3(0, 0.5f, 0.5f);
+            grinderRayStartOffset = new Vector3(0, half, halfSize);
+            grinderType = GrinderType.Vertical;
         }
 
         GameObject gObj = Instantiate(prefab, cellPos + offset, rot, boardParent);
-        gObj.GetComponent<GrinderManager>().InitializeGrinder(grinder.color, grinderDirection, grinderRayStartOffset, grinder.type, grinder.size);
+        gObj.GetComponent<GrinderManager>().InitializeGrinder(grinder.color, grinderDirection, grinderRayStartOffset, grinderType, grinder.size);
     }
 
     private bool IsInsideBoard(int gx, int gz)
     {
         return gx >= 0 && gz >= 0 && gx < width && gz < height;
+    }
+    
+    
+    public bool IsShapePlacementValid(Vector3Int rootCell, List<Vector2Int> shapeOffsets, BlockController ignoreBlock = null)
+    {
+        foreach (var offset in shapeOffsets)
+        {
+            Vector3Int checkCell = rootCell + new Vector3Int(offset.x, 0, offset.y);
+
+            //tahta dısına cıkma
+            if (checkCell.x < 0 || checkCell.x >= width || checkCell.z < 0 || checkCell.z >= height)
+                return false;
+            
+            //blogun kapladigi kendi hucreleri
+            if (ignoreBlock != null && ignoreBlock.occupiedCells.Contains(checkCell))
+                continue;
+
+            //dolu hucreler
+            if (occupiedCells.Contains(checkCell))
+                return false;
+        }
+        return true;
+    }
+
+    public void AddShapeToGrid(Vector3Int rootCell, List<Vector2Int> shapeOffsets)
+    {
+        foreach (var offset in shapeOffsets)
+        {
+            Vector3Int cell = rootCell + new Vector3Int(offset.x, 0, offset.y);
+            occupiedCells.Add(cell);
+        }
+    }
+
+    public void RemoveShapeFromGrid(Vector3Int rootCell, List<Vector2Int> shapeOffsets)
+    {
+        foreach (var offset in shapeOffsets)
+        {
+            Vector3Int cell = rootCell + new Vector3Int(offset.x, 0, offset.y);
+            occupiedCells.Remove(cell);
+        }
+    }
+
+
+    public List<BlockInstanceManager> GetIcedBlocks()
+    {
+        List<BlockInstanceManager> icedBlocks = new List<BlockInstanceManager>();
+        foreach (var s in spawnedBlocks)
+        {
+            if (s.blockInstance.iceCount > 0 && s.blockInstance.blockType == BlockType.Iced)
+            {
+                icedBlocks.Add(s);
+            }
+        }
+
+        return icedBlocks;
     }
 }

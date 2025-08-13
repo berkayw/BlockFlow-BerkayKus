@@ -101,3 +101,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   rayStartOffset: {x: 0, y: 0, z: 0}
   gameData: {fileID: 11400000, guid: 83af81dddef182344bba47d872e1b39f, type: 2}
+  grinderType: 0
+  size: 0
+  iceBreakVFX: {fileID: 4414388408590208937, guid: 060f6c22b012ff044b6cc65ff40293a8,
+    type: 3}
